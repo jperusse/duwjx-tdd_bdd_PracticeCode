@@ -1,4 +1,5 @@
 """Implements a Stack data structure"""
+from logging import NullHandler
 from typing import Any
 
 
@@ -15,7 +16,10 @@ class Stack:
 
     def pop(self) -> Any:
         """Removes an item from the stack and returns it"""
-        return self.items.pop()
+        if self.is_empty() is False:
+            return self.items.pop()
+        else:
+            return False
 
     def peek(self) -> Any:
         """Returns the item at the top of the stack without removing it"""

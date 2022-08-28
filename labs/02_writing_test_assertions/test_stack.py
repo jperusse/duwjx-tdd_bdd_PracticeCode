@@ -46,5 +46,5 @@ class TestStack(TestCase):
         self.assertTrue(self.stack.is_empty())
         
     def test_pop_empty_stack(self):
-        self.assertRaises(IndexError, self.stack.pop())
+        self.assertFalse(self.stack.pop())
   
