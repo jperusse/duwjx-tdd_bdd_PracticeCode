@@ -2,7 +2,7 @@
     "python.testing.unittestArgs": [
         "-v",
         "-s",
-        "./labs",
+        "./labs/99_vscode_validation/tests",
         "-p",
         "test_*.py"
     ],

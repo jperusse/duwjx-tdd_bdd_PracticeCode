@@ -16,7 +16,7 @@ class TestAccountModel(TestCase):
         """ Connect and Load data needed by tests """
         db.create_all()  # make our SQLAlchemy tables
         global ACCOUNT_DATA
-        account_file = 'tests/fixtures/account_data.json'
+        account_file = './labs/03_test_fixtures/tests/fixtures/account_data.json'
         with open(account_file, encoding="locale") as json_data:
             ACCOUNT_DATA = json.load(json_data)
 
