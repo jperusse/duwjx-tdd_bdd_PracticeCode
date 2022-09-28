@@ -1,11 +1,12 @@
 """ Module to test increment/decreement/json """
 
-from importlib import import_module
 import os
 import unittest     # The test framework
 import json         # json format
 
 import inc_dec      # The code to test
+from models import db
+from models.account import Account, DataValidationError
 
 class TestIncrementDecrementJson(unittest.TestCase):
     """ Test class to verify increment/decrement """
@@ -30,7 +31,12 @@ class TestIncrementDecrementJson(unittest.TestCase):
             print(account_data[0])
             json_data.close()
 
-    def test_import_models(self):
-        """ try to import the models directory """
-        self.assertFalse(False)
-    
+    def test_create_all_accounts(self):
+        """ Test creating multiple Accounts """
+        """
+        for data in ACCOUNT_DATA:
+            account = Account(**data)
+            account.create()
+        self.assertEqual(len(Account.all()), len(ACCOUNT_DATA))
+        """
+        pass
