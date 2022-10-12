@@ -1,16 +1,17 @@
 {
     "python.testing.unittestArgs": [
+        "-f",
         "-v",
         "-s",
-        "./labs/05_factories_and_fakes",
+        "labs/07_practicing_tdd",
         "-p",
-        "test_*.py"
+        "test_*.py",
     ],
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": true,
     "testing.followRunningTest": false,
     "python.testing.pytestArgs": [
-        "labs/05_factories_and_fakes"
+        "labs/06_mocking_objects"
     ],
     // Search location for lcov files
     //"markiscodecoverage.searchCriteria": "./coverage.lcov",

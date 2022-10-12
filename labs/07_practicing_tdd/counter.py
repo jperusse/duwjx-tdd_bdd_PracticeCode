@@ -1,3 +1,4 @@
+"""Use Flask to create counters using web services"""
 from flask import Flask
 import status
 
@@ -16,3 +17,37 @@ def create_counter(name):
 
     COUNTERS[name] = 0
     return { name: COUNTERS[name] }, status.HTTP_201_CREATED
+
+@app.route("/counters/<name>", methods=["PUT"])
+def update_counter(name):
+    """Updated a counter"""
+    app.logger.info(f"Request to update counter: {name}")
+    global COUNTERS
+    if name not in COUNTERS:
+        return {"message":f"Counter {name} is missing"}, status.HTTP_404_NOT_FOUND
+
+
+    COUNTERS[name] += 1
+    return { name: COUNTERS[name] }, status.HTTP_200_OK
+
+@app.route("/counters/<name>", methods=["DELETE"])
+def delete_counter(name):
+    """delete a counter"""
+    app.logger.info(f"Request to delete counter: {name}")
+    global COUNTERS
+    if name not in COUNTERS:
+        return {"message":f"Counter {name} is missing"}, status.HTTP_404_NOT_FOUND
+    else:
+        del COUNTERS[name]
+
+    return '',status.HTTP_204_NO_CONTENT
+
+@app.route("/counters/<name>", methods=["GET"])
+def read_counter(name):
+    """read a counter"""
+    app.logger.info(f"Request to read counter: {name}")
+    global COUNTERS
+    if name not in COUNTERS:
+        return {"message":f"Counter {name} is missing"}, status.HTTP_404_NOT_FOUND
+
+    return {name: COUNTERS[name]},status.HTTP_200_OK

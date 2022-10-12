@@ -16,11 +16,14 @@ class TestIMDbDatabase(TestCase):
     def setUpClass(cls):
         """ Load imdb responses needed by tests """
         global IMDB_DATA
-        with open('tests/fixtures/imdb_responses.json') as json_data:
-            IMDB_DATA = json.load(json_data)
+#        with open('imdb_responses_fred.json',mode='r',encoding='UTF8') as json_data:
+#            IMDB_DATA = json.load(json_data)
+        file_stream = open('labs/06_mocking_objects/tests/fixtures/imdb_responses.json',mode='r',encoding='UTF8')
 
 
     ######################################################################
     #  T E S T   C A S E S
     ######################################################################
-
+    def test_hello(self):
+        """ Validate test setup """
+        self.assertTrue(3==3)
