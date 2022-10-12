@@ -3,7 +3,7 @@
         "-f",
         "-v",
         "-s",
-        "labs/07_practicing_tdd",
+        "labs/99_vscode_validation",
         "-p",
         "test_*.py",
     ],
