@@ -74,6 +74,15 @@ class CounterTest(TestCase):
         result = self.client.delete(new_counter)
         self.assertEqual(result.status_code, status.HTTP_204_NO_CONTENT)
 
+    def test_delete_a_missing_counter(self):
+        """It should fail with a 404 trying to delete a missing counter"""
+        counter_name = "boomer"
+
+        # delete the counter
+        new_counter = self.new_counter_name(counter_name)
+        result = self.client.delete(new_counter)
+        self.assertEqual(result.status_code, status.HTTP_404_NOT_FOUND)
+
     def test_update_missing_counter(self):
         """It should fail with a 404 due to a missing counter"""
         counter_name = "bim"
@@ -118,5 +127,5 @@ class CounterTest(TestCase):
         # read the counter
 
         new_counter = self.new_counter_name(counter_name)
-        result = self.client.put(new_counter)
+        result = self.client.get(new_counter)
         self.assertEqual(result.status_code, status.HTTP_404_NOT_FOUND)
